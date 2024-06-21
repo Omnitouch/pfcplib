@@ -14,8 +14,8 @@
 
 -record(f_teid, {
 	  teid       :: 'choose' | 0..16#ffffffff,
-	  ipv6       :: undefined | 'choose' | inet:ip6_address(),
-	  ipv4       :: undefined | 'choose' | inet:ip4_address(),
+	  ipv6       :: undefined | 'choose' | << _:128 >>,
+	  ipv4       :: undefined | 'choose' | << _:32 >>,
 	  choose_id  :: undefined | 0..16#ff
 	 }).
 
@@ -50,8 +50,8 @@
 
 -record(f_seid, {
 	  seid	:: 0..16#ffffffffffffffff,
-	  ipv4	:: undefined | inet:ip4_address(),
-	  ipv6	:: undefined | inet:ip6_address()
+	  ipv4	:: undefined | << _:32 >>,
+	  ipv6	:: undefined | << _:128 >>
 	 }).
 
 -record(node_id, {
@@ -99,8 +99,8 @@
 	  n19 = false	:: boolean(),
 	  type		:: 'GTP-U' | 'UDP' | 'IP' | 'RAW' | undefined,
 	  teid		:: undefined | 0..16#fffffffffffffff,
-	  ipv4		:: undefined | inet:ip4_address() | binary(),
-	  ipv6		:: undefined | inet:ip6_address() | binary(),
+	  ipv4		:: undefined | << _:32 >>,
+	  ipv6		:: undefined | << _:128 >>,
 	  port		:: undefined | 0..16#ffff,
 	  c_tag		:: undefined | binary(),
 	  s_tag		:: undefined | binary()
@@ -108,8 +108,8 @@
 
 -record(ue_ip_address, {
 	  type			:: undefined | 'src' | 'dst',
-	  ipv4			:: undefined | 'choose' | inet:ip4_address(),
-	  ipv6			:: undefined | 'choose' | inet:ip6_address(),
+	  ipv4			:: undefined | 'choose' | << _:32 >>,
+	  ipv6			:: undefined | 'choose' | << _:128 >>,
 	  prefix_delegation	:: undefined | 0..16#ff,
 	  prefix_length		:: undefined | 0..16#ff
 	 }).
@@ -131,8 +131,8 @@
 	 }).
 
 -record(remote_gtp_u_peer, {
-	  ipv4	:: undefined | inet:ip4_address(),
-	  ipv6	:: undefined | inet:ip6_address(),
+	  ipv4	:: undefined | << _:32 >>,
+	  ipv6	:: undefined | << _:128 >>,
 	  destination_interface  :: undefined | binary(),
 	  network_instance       :: undefined | binary()
 	 }).
