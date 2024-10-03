@@ -7,9 +7,9 @@
 -module(pfcp_packet).
 
 -export([encode/1, encode_ies/1,
-	 decode/1, decode/2, decode_ies/1, decode_ies/2,
+	 decode/1, decode/2, decode_header/1, decode_ies/1, decode_ies/2,
 	 encode_fqdn/1, decode_fqdn/1,
-	 msg_description_v1/1, to_map/1, ies_to_map/1]).
+	 msg_description_v1/1, message_type_v1/1, to_map/1, ies_to_map/1]).
 -export([validate/2]).
 -export([pretty_print/1]).
 
