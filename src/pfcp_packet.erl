@@ -3255,7 +3255,7 @@ encode_v1_element(up_function_features, M_flags, Acc)
 
 encode_v1_element(apply_action, M_flags, Acc)
   when is_map(M_flags); is_list(M_flags) ->
-    encode_tlv(44, <<(encode_min_int(8, encode_flags(M_flags, ['DROP','FORW','BUFF','NOCP','DUPL',
+    encode_tlv(44, <<(encode_min_int(16, encode_flags(M_flags, ['DROP','FORW','BUFF','NOCP','DUPL',
                                           'IPMA','IPMD','DFRT','EDRT','BDPN',
                                           'DDPN','_','_','_','_','_']), little))/binary>>, Acc);
 
